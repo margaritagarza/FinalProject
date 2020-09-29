@@ -11,11 +11,11 @@ html {
 }
 
 body {
-    font-family: 'Source Sans Pro';
+    font-family: 'Arial';
 }
 
 .btn-xl {
-    padding: 1.25rem 2.5rem;
+    padding: 2.5rem 2.5rem;
 }
 
 .content-section {
@@ -42,7 +42,7 @@ h6 {
 }
 
 .text-faded {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(218, 198, 25, 0.925);
 }
 
 
@@ -89,14 +89,14 @@ h6 {
 }
 
 .masthead {
-    min-height: 30rem;
+    min-height: 50rem;
     position: relative;
     display: table;
     width: 100%;
     height: auto;
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.1) 100%), url();
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    background: linear-gradient(90deg, rgba(221, 224, 11, 0.774) 0%, rgba(221, 224, 11, 0.774) 100%), url();
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -208,7 +208,7 @@ h6 {
 
 .service-icon {
     background-color: #fff;
-    color: #1D809F;
+    color: rgba(14, 24, 165, 0.425);
     height: 7rem;
     width: 7rem;
     display: block;
@@ -244,7 +244,7 @@ h6 {
     display: flex;
     height: 100%;
     width: 100%;
-    background-color: rgba(33, 37, 41, 0.2);
+    background-color: rgba(12, 34, 233, 0.966);
     position: absolute;
     top: 0;
     bottom: 0;
