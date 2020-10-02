@@ -90,7 +90,17 @@
                 </div>
             </div>
     </section>
-
+    
+    <!-- Winnig calculation button -->
+        <h1>Calculate</h1>
+        <button onclick="myFunction()">Click me</button>
+        <p id="calculation"></p>
+        <script>
+        function myFunction() {
+        document.getElementById("calculation").innerHTML =  Local = 1.08*(homepercent*(1-visitorpercent))
+        Visitante = visitorpercent*(1-homepercent)
+        ProbalidadLocal = Local/(Local + Visitante)
+        ProbablidadVisitante = Vistante /(Local + Visitante);
 
     <!-- Footer -->
     <footer class="footer text-center">
