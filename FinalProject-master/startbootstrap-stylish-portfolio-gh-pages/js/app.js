@@ -1,3 +1,7 @@
+let homepercent;
+let visitorpercent;
+
+
 
 function getPlot(id) {
 
@@ -11,6 +15,7 @@ function getPlot(id) {
 
         var result = metadata.filter(meta => meta.Team.toString() === id)[0];
         console.log(result.winpct)
+        homepercent=result.winpct
             }
         )};
 
@@ -75,9 +80,23 @@ function getPlotvisitor(id) {
 
         var result = metadata.filter(meta => meta.Team.toString() === id)[0];
         console.log(result.winpct)
+        visitorpercent=result.winpct;
             }
         )};
 
+
+
+ function myFunction() { console.log()
+
+    var Local = 1.08*(homepercent*(1-visitorpercent))
+    var Visitante = visitorpercent*(1-homepercent)
+    var ProbalidadLocal = Local/(Local + Visitante)
+    var ProbablidadVisitante = Visitante /(Local + Visitante)
+    document.getElementById("calculation").innerHTML="ProbabilidadLocal"+ProbalidadLocal+"<br>Probabilidad Visitate"+ProbablidadVisitante
+
+            
+        
+            };
 
 // create the function for the change event
 function optionChangedhome(id) {

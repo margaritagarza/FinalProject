@@ -96,14 +96,8 @@
     <!-- Winnig calculation button -->
         <h1>Calculate</h1>
         <button onclick="myFunction()">Click me</button>
-        <p id="calculation"></p>
-        <script>
-        function myFunction(data) {
-        document.getElementById("calculation").innerHTML =  'Local = 1.08*(data.homepercent*(1-data.visitorpercent)'
-        'Visitante = data.visitorpercent*(1-data.homepercent)'
-        'ProbalidadLocal = Local/(Local + Visitante)'
-        'ProbablidadVisitante = Vistante /(Local + Visitante)';
-        }
+        <div id="calculation"></div>
+      
 
     <!-- Footer -->
     <footer class="footer text-center">
@@ -139,7 +133,7 @@
     <!-- Custom scripts for this template -->
     <script src="js/stylish-portfolio.min.js"></script>
     <!-- DATA and App files -->
-    <script src=""></script>
+    <script src="js/samples.json"></script>
     <script src="js/app.js"></script>
 
 </body>
