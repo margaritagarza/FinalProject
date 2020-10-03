@@ -37,9 +37,9 @@ function getInfo(id) {
 
         // empty the demographic info panel each time before getting new id info
         demographicInfo.html("");
-     
-        demographicInfo.append("h5").text( "Home Team: " + result.Team + "\n");
-        demographicInfo.append("h5").text( "Winning Probability: " + Math.round((result.winpct*100))+"%" + "\n");
+        demographicInfo.append("h5").text( "HOME TEAM " + "\n");
+        demographicInfo.append("h5").text( result.Team + "\n");
+        demographicInfo.append("h5").text( "Implied Probability: " + Math.round((result.winpct*100))+"%" + "\n");
 
         
     });
@@ -62,8 +62,9 @@ function getInfovisitor(id) {
 
         // empty the demographic info panel each time before getting new id info
         demographicInfo.html("");
-        demographicInfo.append("h5").text( "Visitor Team: " + result.Team + "\n");
-        demographicInfo.append("h5").text( "Winning Probability: " + Math.round((result.winpct*100))+"%" + "\n");
+        demographicInfo.append("h5").text( "VISITOR TEAM " + "\n");
+        demographicInfo.append("h5").text( result.Team  + "\n");
+        demographicInfo.append("h5").text( "Implied Probability: " + Math.round((result.winpct*100))+"%" + "\n");
 
         
         
@@ -94,7 +95,7 @@ function getPlotvisitor(id) {
     var Visitante = visitorpercent*(1-homepercent)
     var ProbalidadLocal = (Local/(Local + Visitante))*100
     var ProbablidadVisitante = (Visitante /(Local + Visitante))*100
-    document.getElementById("calculation").innerHTML="<h5>Home Team Probability:     "+Math.round(ProbalidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
+    document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round(ProbalidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
 
             
         
