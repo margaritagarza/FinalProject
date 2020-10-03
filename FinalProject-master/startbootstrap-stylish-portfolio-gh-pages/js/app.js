@@ -86,15 +86,13 @@ function getPlotvisitor(id) {
 
 
 
- function myFunction() { console.log()
-
-    var Local = 1.08*(homepercent*(1-visitorpercent))
-    var Visitante = visitorpercent*(1-homepercent)
-    var ProbalidadLocal = Local/(Local + Visitante)
-    var ProbablidadVisitante = Visitante /(Local + Visitante)
-    document.getElementById("calculation").innerHTML="ProbabilidadLocal"+ProbalidadLocal+"<br>Probabilidad Visitate"+ProbablidadVisitante
-
-            
+ function myFunction() { 
+     console.log("HELLO");
+    var Local = 1.08*(homepercent*(1-visitorpercent));
+    var Visitante = visitorpercent*(1-homepercent);
+    var ProbalidadLocal = Local/(Local + Visitante);
+    var ProbablidadVisitante = Visitante /(Local + Visitante);
+    document.getElementById("calculation").innerHTML="ProbabilidadLocal"+ProbalidadLocal+"<br>Probabilidad Visitate"+ProbablidadVisitante ;    
         
             };
 

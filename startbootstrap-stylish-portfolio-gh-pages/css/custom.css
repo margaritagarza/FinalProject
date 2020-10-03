@@ -1,0 +1,14 @@
+
+
+
+/**** Additional Custom CSS ****/
+div.panel-div{
+    padding-right: 50px !important;
+    margin-right: 30px !important;
+    border-right: 2px solid white !important;
+}
+
+div.panel-div-result{
+    margin-left :50px;
+    margin-right:50px;
+}
