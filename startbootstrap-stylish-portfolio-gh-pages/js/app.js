@@ -31,16 +31,17 @@ function getInfo(id) {
 
         // filter meta data info by id
         var result = metadata.filter(meta => meta.Team.toString() === id)[0];
+        console.log(result)
         // select demographic panel to put data
         var demographicInfo = d3.select("#sample-metadata-home");
 
         // empty the demographic info panel each time before getting new id info
         demographicInfo.html("");
+     
+        demographicInfo.append("h5").text( "Home Team: " + result.Team + "\n");
+        demographicInfo.append("h5").text( "Winning Probability: " + Math.round((result.winpct*100))+"%" + "\n");
 
-        // grab the necessary demographic data data for the id and append the info to the panel
-        Object.entries(result).forEach((key) => {
-            demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");
-        });
+        
     });
 }
 
@@ -55,16 +56,17 @@ function getInfovisitor(id) {
 
         // filter meta data info by id
         var result = metadata.filter(meta => meta.Team.toString() === id)[0];
+        console.log(result.Team)
         // select demographic panel to put data
         var demographicInfo = d3.select("#sample-metadata-visitor");
 
         // empty the demographic info panel each time before getting new id info
         demographicInfo.html("");
+        demographicInfo.append("h5").text( "Visitor Team: " + result.Team + "\n");
+        demographicInfo.append("h5").text( "Winning Probability: " + Math.round((result.winpct*100))+"%" + "\n");
 
-        // grab the necessary demographic data data for the id and append the info to the panel
-        Object.entries(result).forEach((key) => {
-            demographicInfo.append("h5").text(key[0].toUpperCase() + ": " + key[1] + "\n");
-        });
+        
+        
     });
 }
 
@@ -90,9 +92,9 @@ function getPlotvisitor(id) {
 
     var Local = 1.08*(homepercent*(1-visitorpercent))
     var Visitante = visitorpercent*(1-homepercent)
-    var ProbalidadLocal = Local/(Local + Visitante)
-    var ProbablidadVisitante = Visitante /(Local + Visitante)
-    document.getElementById("calculation").innerHTML="ProbabilidadLocal"+ProbalidadLocal+"<br>Probabilidad Visitate"+ProbablidadVisitante
+    var ProbalidadLocal = (Local/(Local + Visitante))*100
+    var ProbablidadVisitante = (Visitante /(Local + Visitante))*100
+    document.getElementById("calculation").innerHTML="<h5>Home Team Probability:     "+Math.round(ProbalidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
 
             
         
