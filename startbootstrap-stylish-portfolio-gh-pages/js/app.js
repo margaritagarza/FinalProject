@@ -1,6 +1,7 @@
 let homepercent;
 let visitorpercent;
-
+let visitorteam;
+let hometeam;
 
 
 function getPlot(id) {
@@ -32,6 +33,8 @@ function getInfo(id) {
         // filter meta data info by id
         var result = metadata.filter(meta => meta.Team.toString() === id)[0];
         console.log(result)
+        hometeam = result.Team;
+        
         // select demographic panel to put data
         var demographicInfo = d3.select("#sample-metadata-home");
 
@@ -57,6 +60,8 @@ function getInfovisitor(id) {
         // filter meta data info by id
         var result = metadata.filter(meta => meta.Team.toString() === id)[0];
         console.log(result.Team)
+        visitorteam = result.Team;
+        
         // select demographic panel to put data
         var demographicInfo = d3.select("#sample-metadata-visitor");
 
@@ -98,8 +103,25 @@ function getPlotvisitor(id) {
     document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round(ProbalidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
 
             
-        
-            };
+    d3.json("js/samples.json").then((data) => {
+
+    
+    var variable1 = [data.ProbabilidadLocal,
+        data.ProbabilidadVisitante]
+
+    var barData = [
+        {
+          y: variable1,
+          x: [hometeam, visitorteam],          
+          type: "bar",
+          orientation: "h",
+        }
+      ];
+    
+      Plotly.newPlot("bar", barData)
+      });
+
+      }
 
 // create the function for the change event
 function optionChangedhome(id) {
