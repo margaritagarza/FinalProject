@@ -71,6 +71,7 @@ function getInfovisitor(id) {
         demographicInfo.append("h5").text( result.Team  + "\n");
         demographicInfo.append("h5").text( "Implied Probability: " + Math.round((result.winpct*100))+"%" + "\n");
 
+
         
         
     });
@@ -100,7 +101,10 @@ function getPlotvisitor(id) {
     var Visitante = visitorpercent*(1-homepercent)
     var ProbabilidadLocal = (Local/(Local + Visitante))*100
     var ProbablidadVisitante = (Visitante /(Local + Visitante))*100
-    document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round( ProbabilidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
+    var OTLocal = ( 1/ProbabilidadLocal)*100
+    var OTVisitante  =( 1/ProbablidadVisitante)*100
+    document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round( ProbabilidadLocal)+"%"+"<br>Visitor Team Probability:  "+Math.round(ProbablidadVisitante)+"%"+
+     "<br>Home Team OT/MOMIO:    "+Number(OTLocal.toFixed(2))+"<br>Visitor Team OT/MOMIO:    "+Number(OTVisitante.toFixed(2))+"</h5>";
 
             
 
@@ -119,8 +123,13 @@ function getPlotvisitor(id) {
           type: "bar",
         }
       ];
+
+      var barLayout = {
+        title: "Model prediction-Probability of Winning % ",
+        margin: { t: 50, l: 150 }
+      };
+      Plotly.newPlot("bar", barData, barLayout)
     
-      Plotly.newPlot("bar", barData)
       };
 
       
