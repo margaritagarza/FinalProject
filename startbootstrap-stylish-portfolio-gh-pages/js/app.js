@@ -98,30 +98,32 @@ function getPlotvisitor(id) {
 
     var Local = 1.08*(homepercent*(1-visitorpercent))
     var Visitante = visitorpercent*(1-homepercent)
-    var ProbalidadLocal = (Local/(Local + Visitante))*100
+    var ProbabilidadLocal = (Local/(Local + Visitante))*100
     var ProbablidadVisitante = (Visitante /(Local + Visitante))*100
-    document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round(ProbalidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
+    document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round( ProbabilidadLocal)+"%"+"<br>Visitor Team Probability:    "+Math.round(ProbablidadVisitante)+"%</h5>"
 
             
-    d3.json("js/samples.json").then((data) => {
 
     
-    var variable1 = [data.ProbabilidadLocal,
-        data.ProbabilidadVisitante]
+    var variable1 = [ ProbabilidadLocal,
+        ProbablidadVisitante]
+
+    console.log(variable1)
+    console.log(hometeam)
 
     var barData = [
         {
-          y: variable1,
+          y:  [ Math.round(ProbabilidadLocal),
+            Math.round(ProbablidadVisitante)],
           x: [hometeam, visitorteam],          
           type: "bar",
-          orientation: "h",
         }
       ];
     
       Plotly.newPlot("bar", barData)
-      });
+      };
 
-      }
+      
 
 // create the function for the change event
 function optionChangedhome(id) {
