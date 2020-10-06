@@ -104,7 +104,7 @@ function getPlotvisitor(id) {
     var OTLocal = ( 1/ProbabilidadLocal)*100
     var OTVisitante  =( 1/ProbablidadVisitante)*100
     document.getElementById("calculation").innerHTML="<h5> Outcome Probability <br> Home Team Probability:     "+Math.round( ProbabilidadLocal)+"%"+"<br>Visitor Team Probability:  "+Math.round(ProbablidadVisitante)+"%"+
-     "<br>Home Team OT/MOMIO:    "+Number(OTLocal.toFixed(2))+"<br>Visitor Team OT/MOMIO:    "+Number(OTVisitante.toFixed(2))+"</h5>";
+     "<br>Home Team ODDS/MOMIO:    "+Number(OTLocal.toFixed(2))+"<br>Visitor Team ODDS/MOMIO:    "+Number(OTVisitante.toFixed(2))+"</h5>";
 
             
 
@@ -173,6 +173,66 @@ function init() {
         getInfo(data.names[0]);
         getPlotvisitor(data.names[0]);
         getInfovisitor(data.names[0]);
+
+        var Teamname = ['Dodgers','Padres','Rays','Yankees','Indians','Braves','Twins','Reds','White Sox','Athletics'];
+
+        var Teamprobability = [0.72,0.64,0.6,0.6,0.59,0.59,0.58,0.56,0.56,0.55];
+
+        var trace1 = {
+        type: 'scatter',
+        x: Teamprobability,
+        y: Teamname,
+        mode: 'markers',
+        name: 'Probability',
+        marker: {
+            color: 'rgba(156, 165, 196, 0.95)',
+            line: {
+            color: 'rgba(156, 165, 196, 1.0)',
+            width: 1,
+            },
+            symbol: 'circle',
+            size: 16
+        }
+        };
+
+
+        var databar = [trace1];
+
+        var layout = {
+        title: 'Top 10 Teams with Highest Implied Probability',
+        xaxis: {
+            showgrid: false,
+            showline: true,
+            linecolor: 'rgb(102, 102, 102)',
+            titlefont: {
+            font: {
+                color: 'rgb(204, 204, 204)'
+            }
+            },
+            tickfont: {
+            font: {
+                color: 'rgb(102, 102, 102)'
+            }
+            },
+            autotick: true,
+            dtick: 10,
+            ticks: 'outside',
+            tickcolor: 'rgb(102, 102, 102)'
+        },
+        margin: {
+            l: 140,
+            r: 40,
+            b: 50,
+            t: 80
+        },
+        width: 1200,
+        height: 600,
+        paper_bgcolor: 'rgb(254, 247, 234)',
+        plot_bgcolor: 'rgb(254, 247, 234)',
+        hovermode: 'closest'
+        };
+
+        Plotly.newPlot('myDiv', databar, layout);
 
     });
 }
